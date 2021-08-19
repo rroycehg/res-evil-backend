@@ -1,25 +1,19 @@
-# README
+# Phase 4 project README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### MVP:
 
-Things you may want to cover:
+    * Users can view all characters, their info, stats and bio (from Resident Evil game series)
+    * Client/Route set ups for a few frontend components such as user login/signup page
+    * Users can essentially add characters to a "favorites list" or "liked list"
+        -Only users who signup and have a profile can add characters and access the list (Authentication)
+    * Users will remain signed in until they log out
+    * One user (admin) is allowed to modify what's displayed directly (Authorization)
+    * Full CRUD applied
 
-* Ruby version
+## Stretch:
 
-* System dependencies
+    *With cookies coded in, users will have up to 3-5 characters that they can view until they are
+     prompted to signup and create a profile to continue
+    * Users can simulate a battle between two characters
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # res-evil-backend
