@@ -41,16 +41,27 @@ User.create!([
     {
      username: "Bob",
      password: "ilovecapcom"
+
     },
     {
      username: "Susie",
      password: "sologirl01"
-    }
+     }
 ])
 
-puts "Creating Stats for Characters"
+# puts "Creating Stats for Characters"
 
-Character.all.each do |character|
-    Stat.create!(character_id:character.id, VIT: rand(40..100), STR: rand(50..90), DEF: rand(20..90))
-end
+# Character.all.each do |character|
+#     Stat.create!(character_id:character.id, VIT: rand(40..100), STR: rand(50..90), DEF: rand(20..90))
+# end
+
+
+puts "Creating Favorites"
+
+Favorite.create(character_id: 8, user_id: 2 )
+Favorite.create(character_id: 7, user_id: 2)
+Favorite.create(character_id: 2, user_id: 3)
+Favorite.create(character_id: 4, user_id: 3)
+
+
 

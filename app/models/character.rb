@@ -1,3 +1,4 @@
 class Character < ApplicationRecord
-    has_many :stats
+    has_many :favorites
+    has_many :users, through: :favorites
 end
