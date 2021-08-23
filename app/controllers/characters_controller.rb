@@ -15,7 +15,7 @@ class CharactersController < ApplicationController
     end
 
     def create 
-        
+        char = Character.create()
     end
 
     private
@@ -24,5 +24,8 @@ class CharactersController < ApplicationController
         Character.find_by(id: params[:id])
     end
 
+    def character_params
+        params.permit(:name, :ffiliation, :bio, :img, :VIT, :STR, :DEF)
+    end
 
 end
