@@ -42,16 +42,21 @@ puts "Creating Users"
 User.create!([
     {
      username: "Admin",
-     password: "flatiron099"
+     password: "flatiron099",
+     password_confirmation: "flatiron099"
     },
     {
      username: "Bob",
-     password: "ilovecapcom"
+     password: "ilovecapcom",
+     password_confirmation: "ilovecapcom"
+
 
     },
     {
      username: "Susie",
-     password: "sologirl01"
+     password: "sologirl01",
+     password_confirmation: "sologirl01"
+
      }
 ])
 
