@@ -39,26 +39,27 @@ img: "https://static.wikia.nocookie.net/residentevil/images/5/5c/Ada_Wong_RE6.jp
 
 
 puts "Creating Users"
-User.create!([
-    {
-     username: "Admin",
-     password: "flatiron099",
-     password_confirmation: "flatiron099"
-    },
-    {
-     username: "Bob",
-     password: "ilovecapcom",
-     password_confirmation: "ilovecapcom"
+u1 = User.create(username: "Admin", password: "flatiron099", password_confirmation: "flatiron099")
+u2 = User.create(username: "Bob", password: "ilovecapcom", password_confirmation: "ilovecapcom")
+u3 = User.create(username: "Susie", password: "sologirl01", password_confirmation: "sologirl01")
+# User.create!([
+#     {
+#      username: "Admin",
+#      password: "flatiron099",
+#      password_confirmation: "flatiron099"
+#     },
+#     {
+#      username: "Bob",
+#      password: "ilovecapcom",
+#      password_confirmation: "ilovecapcom"
 
-
-    },
-    {
-     username: "Susie",
-     password: "sologirl01",
-     password_confirmation: "sologirl01"
-
-     }
-])
+#     },
+#     {
+#      username: "Susie",
+#      password: "sologirl01",
+#      password_confirmation: "sologirl01"
+#      }
+# ])
 
 # puts "Creating Stats for Characters"
 
@@ -69,10 +70,10 @@ User.create!([
 
 puts "Creating Favorites"
 
-Favorite.create(character_id: 8, user_id: 2 )
-Favorite.create(character_id: 7, user_id: 2)
-Favorite.create(character_id: 2, user_id: 3)
-Favorite.create(character_id: 4, user_id: 3)
+Favorite.create(character_id: char1.id, user_id: u1.id)
+Favorite.create(character_id: char3.id, user_id: u2.id)
+Favorite.create(character_id: char5.id, user_id: u2.id)
+Favorite.create(character_id: char8.id, user_id: u3.id)
 
 
 puts "Done"

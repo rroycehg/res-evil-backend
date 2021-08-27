@@ -1,12 +1,16 @@
 class FavoritesController < ApplicationController
+    # before_action :authorize
+    # skip_before_action :authorize, only: [:index]
+    wrap_parameters format: []
 
     def index
         fave = Favorite.all
         render json: fave
     end
 
+
     def show
-        fave = find_favorite
+        fave = Favorite.find_by(user_id: session[:user_id])
         if fave
             render json: fave
         else
@@ -15,11 +19,11 @@ class FavoritesController < ApplicationController
     end
 
     def create 
-        fave = Character.new(favorite_params)
-        if fave.save
+        fave = Favorite.create(favorite_params)
+        if fave
             render json: fave, status: :created
         else
-            render json: { error: "Not valid, please try again"}, status: :unprocessable_entity
+            render json: { error: "Must be logged in to add"}, status: :unprocessable_entity
         end
     end
 
@@ -35,6 +39,13 @@ class FavoritesController < ApplicationController
         end
     end
 
+    def index_user_favs
+        fav = User.find_by(id: params[:id]).favorites
+        render json: fav
+    end
+
+    
+
     private
 
     def find_favorite
@@ -43,5 +54,9 @@ class FavoritesController < ApplicationController
 
     def favorite_params
         params.permit(:character_id, :user_id)
+    end
+
+    def authorize
+        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
     end
 end
